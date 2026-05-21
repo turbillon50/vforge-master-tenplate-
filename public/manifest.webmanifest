@@ -1,14 +1,20 @@
 {
-  "name": "VForge",
-  "short_name": "VForge",
-  "description": "Universal PWA application factory.",
+  "name": "Vº Momentum",
+  "short_name": "Momentum",
+  "description": "Tu app. Tu negocio. Sin tensiones.",
   "start_url": "/app",
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#0a0a0f",
-  "theme_color": "#0a0a0f",
+  "background_color": "#000000",
+  "theme_color": "#0a0f1a",
   "icons": [
+    {
+      "src": "/brand/momentum-mark.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
     {
       "src": "/icons/icon-192.png",
       "sizes": "192x192",
@@ -22,6 +28,6 @@
       "purpose": "any maskable"
     }
   ],
-  "categories": ["productivity", "business"],
+  "categories": ["business", "productivity"],
   "lang": "es"
 }

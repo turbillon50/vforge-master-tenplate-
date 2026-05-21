@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" fill="none" aria-label="Vº Momentum">
+  <defs>
+    <linearGradient id="chrome2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f0f3f7"/>
+      <stop offset="35%" stop-color="#b8c0cb"/>
+      <stop offset="55%" stop-color="#5e6470"/>
+      <stop offset="75%" stop-color="#cdd4dd"/>
+      <stop offset="100%" stop-color="#f0f3f7"/>
+    </linearGradient>
+    <radialGradient id="ringGlow2" cx="50%" cy="50%" r="50%">
+      <stop offset="55%" stop-color="#1e90ff" stop-opacity="0"/>
+      <stop offset="75%" stop-color="#1e90ff" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#4fb6ff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="ringBlur2" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3"/>
+    </filter>
+  </defs>
+  <!-- V mark -->
+  <circle cx="158" cy="118" r="26" fill="url(#ringGlow2)" filter="url(#ringBlur2)"/>
+  <path d="M40 50 L110 170 L180 50 L160 50 L110 138 L60 50 Z"
+        fill="url(#chrome2)" stroke="#9aa1ab" stroke-width="0.5" stroke-linejoin="round"/>
+  <circle cx="158" cy="118" r="14" fill="none" stroke="#1e90ff" stroke-width="3.5"/>
+  <circle cx="158" cy="118" r="14" fill="none" stroke="#4fb6ff" stroke-width="1.2" opacity="0.85"/>
+  <!-- separator -->
+  <line x1="220" y1="60" x2="220" y2="140" stroke="#3a4252" stroke-width="1.5"/>
+  <!-- Momentum wordmark -->
+  <text x="245" y="125" font-family="Geist, Inter, system-ui, sans-serif" font-weight="500" font-size="68" letter-spacing="-1.2" fill="url(#chrome2)">Momentum</text>
+  <text x="247" y="158" font-family="Geist, Inter, system-ui, sans-serif" font-weight="500" font-size="13" letter-spacing="6" fill="#3b8cff">SAAS  TECHNOLOGY  APPS  DESIGN</text>
+</svg>

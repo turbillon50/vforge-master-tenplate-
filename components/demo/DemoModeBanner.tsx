@@ -1,23 +1,23 @@
 import Link from "next/link";
-import { Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 /**
  * Shown on every page when Clerk envs are missing.
- * Lets visitors know they're inside a public preview with a fake super-admin.
+ * Frames the deploy as a "live demo of what we build" — sales asset, not warning.
  */
 export function DemoModeBanner() {
   return (
-    <div className="relative z-40 border-b border-accent-violet/30 bg-accent-violet/10 px-4 py-1.5 text-center text-xs">
+    <div className="relative z-40 border-b border-accent-electric/30 bg-accent-electric/10 px-4 py-1.5 text-center text-xs">
       <p className="flex flex-wrap items-center justify-center gap-1.5 text-on-surface-variant">
-        <Sparkles className="h-3 w-3 text-accent-violet" />
-        <span className="font-medium text-foreground">Demo mode</span>
-        <span>·</span>
-        <span>Full template preview. No auth, no DB.</span>
+        <span className="inline-block h-1.5 w-1.5 animate-pulse-soft rounded-full bg-accent-electric" />
+        <span className="font-medium text-foreground">Demo en vivo</span>
+        <span className="hidden sm:inline">·</span>
+        <span className="hidden sm:inline">Explora una app construida con nuestro stack.</span>
         <Link
           href="/app"
-          className="underline underline-offset-2 hover:text-foreground"
+          className="ml-1 inline-flex items-center gap-1 font-medium text-accent-electric underline-offset-2 hover:underline"
         >
-          Enter the app →
+          Entrar a la app <ArrowRight className="h-3 w-3" />
         </Link>
       </p>
     </div>
