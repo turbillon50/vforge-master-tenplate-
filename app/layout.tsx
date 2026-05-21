@@ -10,7 +10,9 @@ import { appConfig } from "@/config/app.config";
 import { brandingConfig } from "@/config/branding.config";
 import { RegisterSW } from "@/components/pwa/RegisterSW";
 import { CookieConsentBanner } from "@/components/cookies/CookieConsentBanner";
+import { DemoModeBanner } from "@/components/demo/DemoModeBanner";
 import { getArchetype, archetypeTokenStyle } from "@/lib/ui-mode";
+import { IS_DEMO_MODE } from "@/lib/auth";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -77,36 +79,39 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const messages = await getMessages();
   const archetype = await getArchetype();
 
-  return (
-    <ClerkProvider>
-      <html
-        lang={locale}
-        suppressHydrationWarning
-        className={`${GeistSans.variable} ${GeistMono.variable}`}
-        data-archetype={archetype}
-        style={archetypeTokenStyle(archetype)}
-      >
-        <head>
-          {/* Avoid theme flash before hydration. */}
-          <script dangerouslySetInnerHTML={{ __html: themeBootScript }} />
-        </head>
-        <body className="min-h-dvh bg-background text-foreground font-sans antialiased">
-          <NextIntlClientProvider locale={locale} messages={messages}>
-            <ThemeProvider
-              attribute="data-theme"
-              defaultTheme={appConfig.defaultTheme}
-              enableSystem
-              storageKey="vforge-theme"
-              disableTransitionOnChange
-            >
-              {children}
-              <CookieConsentBanner />
-              <RegisterSW />
-              <Toaster richColors position="top-right" closeButton />
-            </ThemeProvider>
-          </NextIntlClientProvider>
-        </body>
-      </html>
-    </ClerkProvider>
+  const tree = (
+    <html
+      lang={locale}
+      suppressHydrationWarning
+      className={`${GeistSans.variable} ${GeistMono.variable}`}
+      data-archetype={archetype}
+      style={archetypeTokenStyle(archetype)}
+    >
+      <head>
+        {/* Avoid theme flash before hydration. */}
+        <script dangerouslySetInnerHTML={{ __html: themeBootScript }} />
+      </head>
+      <body className="min-h-dvh bg-background text-foreground font-sans antialiased">
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <ThemeProvider
+            attribute="data-theme"
+            defaultTheme={appConfig.defaultTheme}
+            enableSystem
+            storageKey="vforge-theme"
+            disableTransitionOnChange
+          >
+            {IS_DEMO_MODE && <DemoModeBanner />}
+            {children}
+            <CookieConsentBanner />
+            <RegisterSW />
+            <Toaster richColors position="top-right" closeButton />
+          </ThemeProvider>
+        </NextIntlClientProvider>
+      </body>
+    </html>
   );
+
+  // Mount ClerkProvider only when configured. In demo mode the entire app
+  // works as a super-admin without Clerk loaded — safe for client showcases.
+  return IS_DEMO_MODE ? tree : <ClerkProvider>{tree}</ClerkProvider>;
 }

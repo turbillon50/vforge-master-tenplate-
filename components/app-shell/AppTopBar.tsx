@@ -1,15 +1,13 @@
-"use client";
-
 import Link from "next/link";
-import { UserButton } from "@clerk/nextjs";
 import { Sparkles, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/controls/ThemeToggle";
 import { LocaleToggle } from "@/components/controls/LocaleToggle";
 import { appConfig } from "@/config/app.config";
 import { Badge } from "@/components/ui/badge";
-import type { AuthUser } from "@/lib/auth";
+import { IS_DEMO_MODE, type AuthUser } from "@/lib/auth";
 import { isAdminRole } from "@/config/roles.config";
+import { UserButtonOrDemo } from "@/components/auth/UserButtonOrDemo";
 
 export function AppTopBar({ user }: { user: AuthUser }) {
   return (
@@ -42,7 +40,11 @@ export function AppTopBar({ user }: { user: AuthUser }) {
               <Link href="/admin">Admin</Link>
             </Button>
           )}
-          <UserButton afterSignOutUrl="/" />
+          <UserButtonOrDemo
+            isDemo={IS_DEMO_MODE}
+            demoName={user.fullName ?? "Demo"}
+            demoEmail={user.email ?? "demo@vforge.app"}
+          />
         </div>
       </div>
     </header>
