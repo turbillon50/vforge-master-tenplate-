@@ -1,9 +1,13 @@
 /**
  * Auth helpers — wraps Clerk and projects user → role + permissions.
  * Always use these instead of calling Clerk directly inside services/routes.
+ *
+ * Demo mode: when NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY is missing (e.g. on a
+ * zero-config Vercel preview), every request is treated as a demo
+ * super-admin so the entire UI surface remains explorable for clients.
  */
 
-import { auth as clerkAuth, currentUser } from "@clerk/nextjs/server";
+import { ALL_PERMISSIONS, type PermissionKey } from "@/config/permissions.config";
 import {
   DEFAULT_ROLE,
   isAdminRole,
@@ -11,7 +15,6 @@ import {
   rolePermissions,
   type Role,
 } from "@/config/roles.config";
-import type { PermissionKey } from "@/config/permissions.config";
 
 export interface AuthUser {
   id: string;
@@ -21,6 +24,18 @@ export interface AuthUser {
   role: Role;
   permissions: PermissionKey[];
 }
+
+export const IS_DEMO_MODE =
+  !process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY || !process.env.CLERK_SECRET_KEY;
+
+const DEMO_USER: AuthUser = {
+  id: "demo_admin",
+  email: "demo@vforge.app",
+  fullName: "Demo Admin",
+  imageUrl: null,
+  role: "super_admin",
+  permissions: ALL_PERMISSIONS,
+};
 
 function readRole(user: { publicMetadata?: Record<string, unknown> } | null): Role {
   const raw = (user?.publicMetadata?.role as string | undefined) ?? DEFAULT_ROLE;
@@ -35,21 +50,28 @@ function readExtraPermissions(
 }
 
 export async function getCurrentUser(): Promise<AuthUser | null> {
-  const user = await currentUser();
-  if (!user) return null;
-  const role = readRole(user);
-  const basePerms = rolePermissions[role] ?? [];
-  const extra = readExtraPermissions(user);
-  const permissions = Array.from(new Set([...basePerms, ...extra]));
-  return {
-    id: user.id,
-    email: user.primaryEmailAddress?.emailAddress ?? null,
-    fullName:
-      [user.firstName, user.lastName].filter(Boolean).join(" ") || user.username || null,
-    imageUrl: user.imageUrl ?? null,
-    role,
-    permissions,
-  };
+  if (IS_DEMO_MODE) return DEMO_USER;
+  try {
+    const { currentUser } = await import("@clerk/nextjs/server");
+    const user = await currentUser();
+    if (!user) return null;
+    const role = readRole(user);
+    const basePerms = rolePermissions[role] ?? [];
+    const extra = readExtraPermissions(user);
+    const permissions = Array.from(new Set([...basePerms, ...extra]));
+    return {
+      id: user.id,
+      email: user.primaryEmailAddress?.emailAddress ?? null,
+      fullName:
+        [user.firstName, user.lastName].filter(Boolean).join(" ") || user.username || null,
+      imageUrl: user.imageUrl ?? null,
+      role,
+      permissions,
+    };
+  } catch (err) {
+    console.warn("[auth] currentUser failed, returning null", err);
+    return null;
+  }
 }
 
 export async function requireUser(): Promise<AuthUser> {
@@ -89,6 +111,12 @@ export async function getAuthState(): Promise<{
   isAuthenticated: boolean;
   userId: string | null;
 }> {
-  const { userId } = await clerkAuth();
-  return { isAuthenticated: Boolean(userId), userId };
+  if (IS_DEMO_MODE) return { isAuthenticated: true, userId: DEMO_USER.id };
+  try {
+    const { auth } = await import("@clerk/nextjs/server");
+    const { userId } = await auth();
+    return { isAuthenticated: Boolean(userId), userId };
+  } catch {
+    return { isAuthenticated: false, userId: null };
+  }
 }

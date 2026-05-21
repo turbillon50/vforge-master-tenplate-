@@ -1,14 +1,12 @@
-"use client";
-
 import Link from "next/link";
-import { UserButton } from "@clerk/nextjs";
 import { ShieldCheck } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/controls/ThemeToggle";
 import { LocaleToggle } from "@/components/controls/LocaleToggle";
 import { appConfig } from "@/config/app.config";
-import type { AuthUser } from "@/lib/auth";
+import { IS_DEMO_MODE, type AuthUser } from "@/lib/auth";
+import { UserButtonOrDemo } from "@/components/auth/UserButtonOrDemo";
 
 export function AdminTopBar({ user }: { user: AuthUser }) {
   return (
@@ -34,7 +32,11 @@ export function AdminTopBar({ user }: { user: AuthUser }) {
           </Button>
           <LocaleToggle />
           <ThemeToggle />
-          <UserButton afterSignOutUrl="/" />
+          <UserButtonOrDemo
+            isDemo={IS_DEMO_MODE}
+            demoName={user.fullName ?? "Demo"}
+            demoEmail={user.email ?? "demo@vforge.app"}
+          />
         </div>
       </div>
     </header>
