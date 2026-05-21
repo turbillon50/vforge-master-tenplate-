@@ -15,9 +15,10 @@ infrastructure that produces products.
 - **Google Maps** · **OpenRouter** AI gateway · **Name.com** domains
 - **PWA** (manifest + service worker + bottom nav + offline-ready)
 - **i18n** EN/ES with toggle · **Theme** light/dark with toggle
-- **UI Archetype System**: fintech, cinematic, operations, productivity
-- Multi-page public site (13 routes) ready for App Store / Play Store
-- 16 modules (12 industry + 4 core) with config-driven enable/disable
+- **UI Archetype System**: fintech, cinematic, operations, productivity, marketplace, messaging
+- **Industry Templates**: restaurant, real-estate, business-network, school, security-inspections
+- Multi-page public site (17 routes incl. /knowledge /press /status /splash) ready for App Store / Play Store
+- 25+ modules (industry + core + ops + growth) with config-driven enable/disable
 - Granular permissions (40+ keys, 6 roles, per-user overrides)
 - Universal status system, feature flags, audit logs, media manager
 - Communication Center (in-app, email, SMS, WhatsApp, push)
@@ -52,14 +53,39 @@ Then open http://localhost:3000.
 
 ## Public routes
 
-`/`, `/about`, `/features`, `/pricing`, `/faq`, `/contact`, `/support`,
-`/terms`, `/privacy`, `/cookies`, `/delete-account`, `/ios-policy`,
-`/android-policy`
+`/`, `/splash`, `/about`, `/features`, `/pricing`, `/faq`, `/contact`,
+`/support`, `/status`, `/press`, `/knowledge`, `/terms`, `/privacy`,
+`/cookies`, `/delete-account`, `/ios-policy`, `/android-policy`
 
-## Private routes
+## Private routes (PWA shell)
 
-- `/app` — PWA shell with bottom nav, modules, profile, inbox, api
-- `/admin` — enterprise admin dashboard (20+ pages)
+- `/app` — dashboard, bottom nav, modules
+- `/app/profile`, `/app/settings`, `/app/notifications`, `/app/billing`, `/app/help`
+- `/app/inbox` (Communication Center), `/app/api` (API Center)
+- Module surfaces: `/app/{ecommerce,booking,marketplace,rides,crm,analytics,...}`
+- `/dashboard/*` paths are URL aliases that resolve to `/app/*`
+
+## Admin routes
+
+- `/admin` — overview · users · roles · permissions · feature-flags · statuses
+- `/admin/content` · `knowledge` · `legal` · `press` · `faq` · `social-links` · `media`
+- `/admin/communication` · `notifications` · `automations` · `support`
+- `/admin/analytics` · `payments` · `api-keys` · `credits` · `usage`
+- `/admin/modules` · `industry` · `ui-mode` · `integrations` · `branding` · `settings`
+- `/admin/audit-logs`
+
+## Industry templates
+
+| Template               | Recommended archetype       | Status   |
+| ---------------------- | --------------------------- | -------- |
+| `restaurant`           | operations / marketplace    | scaffold |
+| `real-estate`          | cinematic                   | scaffold |
+| `business-network`     | marketplace / messaging     | scaffold |
+| `school`               | productivity / messaging    | scaffold |
+| `security-inspections` | operations                  | scaffold |
+
+Activate one with `NEXT_PUBLIC_INDUSTRY="<id>"`. See
+[`industry-templates/README.md`](./industry-templates/README.md).
 
 ## Documentation
 
@@ -69,6 +95,7 @@ Then open http://localhost:3000.
 - `docs/CONVENTIONS.md` — naming, layering, hard rules
 - `docs/DEPLOY.md` — deploying to Vercel + Neon
 - `ui-archetypes/README.md` — the visual modes system
+- `industry-templates/README.md` — industry templates registry
 
 ## Brand
 

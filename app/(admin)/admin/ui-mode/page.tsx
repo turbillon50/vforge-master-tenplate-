@@ -14,7 +14,7 @@ export default async function UIArchetypeAdminPage() {
       title="UI Archetypes"
       description="Visual operating modes. Backend, modules, users and data remain identical — only presentation changes."
       capabilities={[
-        "fintech, cinematic, operations, productivity",
+        "fintech, cinematic, operations, productivity, marketplace, messaging",
         "data-archetype on <html> + CSS token overrides",
         "Persisted in cookie + app_settings",
       ]}

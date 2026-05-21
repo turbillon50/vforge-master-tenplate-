@@ -12,6 +12,8 @@ export const UI_ARCHETYPES = {
   CINEMATIC: "cinematic",
   OPERATIONS: "operations",
   PRODUCTIVITY: "productivity",
+  MARKETPLACE: "marketplace",
+  MESSAGING: "messaging",
 } as const;
 
 export type UIArchetype = (typeof UI_ARCHETYPES)[keyof typeof UI_ARCHETYPES];
@@ -23,10 +25,10 @@ export interface UIArchetypeDefinition {
   description: { en: string; es: string };
   density: "compact" | "comfortable" | "spacious";
   navStyle: "sidebar" | "topbar" | "bottom-sheet" | "rail";
-  cardStyle: "compact" | "immersive" | "operational" | "structured";
+  cardStyle: "compact" | "immersive" | "operational" | "structured" | "social";
   animation: "subtle" | "cinematic" | "snappy" | "calm";
   typography: "operational" | "editorial" | "expressive" | "neutral";
-  mobile: "one-hand" | "showcase" | "operational" | "workspace";
+  mobile: "one-hand" | "showcase" | "operational" | "workspace" | "chat";
   bestFor: string[];
   /**
    * CSS token overrides applied when [data-archetype="<key>"] is on <html>.
@@ -138,6 +140,58 @@ export const uiModes: Record<UIArchetype, UIArchetypeDefinition> = {
       "--archetype-gap": "0.5rem",
       "--archetype-hero-height": "auto",
       "--archetype-headline-scale": "0.9",
+    },
+  },
+  marketplace: {
+    key: "marketplace",
+    label: { en: "Marketplace", es: "Marketplace" },
+    inspiredBy: ["Mercado Libre", "Etsy", "Airbnb"],
+    description: {
+      en: "Grid-first layouts, social cards, promotional rails, fast filters. Best for directories, marketplaces, restaurant ordering, business networks.",
+      es: "Layouts en grid, tarjetas sociales, rieles promocionales, filtros rápidos. Ideal para directorios, marketplaces, pedidos de restaurante, redes de negocios.",
+    },
+    density: "comfortable",
+    navStyle: "topbar",
+    cardStyle: "social",
+    animation: "snappy",
+    typography: "expressive",
+    mobile: "showcase",
+    bestFor: ["marketplace", "restaurant", "business-network", "directory", "ecommerce"],
+    tokens: {
+      "--radius-lg": "16px",
+      "--radius-md": "12px",
+      "--radius-sm": "8px",
+      "--archetype-card-padding": "1rem",
+      "--archetype-section-padding-y": "2.5rem",
+      "--archetype-gap": "1rem",
+      "--archetype-hero-height": "auto",
+      "--archetype-headline-scale": "1.05",
+    },
+  },
+  messaging: {
+    key: "messaging",
+    label: { en: "Messaging", es: "Mensajería" },
+    inspiredBy: ["WhatsApp", "iMessage", "Telegram"],
+    description: {
+      en: "Conversation-first layout: list of threads, sticky composer, read receipts, lightweight cards. Best for school chats, business networks, community apps.",
+      es: "Layout conversación-primero: lista de hilos, composer fijo, recibos de lectura, tarjetas ligeras. Ideal para chats escolares, redes de negocios, comunidades.",
+    },
+    density: "comfortable",
+    navStyle: "bottom-sheet",
+    cardStyle: "social",
+    animation: "snappy",
+    typography: "neutral",
+    mobile: "chat",
+    bestFor: ["school", "business-network", "community", "support", "internal-comms"],
+    tokens: {
+      "--radius-lg": "18px",
+      "--radius-md": "14px",
+      "--radius-sm": "10px",
+      "--archetype-card-padding": "0.875rem",
+      "--archetype-section-padding-y": "1rem",
+      "--archetype-gap": "0.625rem",
+      "--archetype-hero-height": "auto",
+      "--archetype-headline-scale": "0.95",
     },
   },
 };

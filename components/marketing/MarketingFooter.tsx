@@ -29,6 +29,9 @@ export async function MarketingFooter() {
     { label: t("support"), href: "/support" },
     { label: t("faq"), href: "/faq" },
     { label: t("contact"), href: "/contact" },
+    { label: "Knowledge", href: "/knowledge" },
+    { label: "Status", href: "/status" },
+    { label: "Press", href: "/press" },
   ];
 
   return (

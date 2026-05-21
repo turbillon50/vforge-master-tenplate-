@@ -26,6 +26,14 @@ import {
   Activity,
   KeyRound,
   Coins,
+  BarChart3,
+  BookOpen,
+  Newspaper,
+  Workflow,
+  History,
+  Lock,
+  Boxes,
+  Brush,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -36,6 +44,7 @@ const sections = [
       { key: "overview", href: "/admin", icon: LayoutDashboard },
       { key: "users", href: "/admin/users", icon: Users },
       { key: "roles", href: "/admin/roles", icon: ShieldCheck },
+      { key: "permissions", href: "/admin/permissions", icon: Lock, labelOverride: "Permissions" },
       { key: "featureFlags", href: "/admin/feature-flags", icon: Flag },
       { key: "statuses", href: "/admin/statuses", icon: Activity },
     ],
@@ -44,7 +53,9 @@ const sections = [
     title: "content",
     items: [
       { key: "content", href: "/admin/content", icon: FileText },
+      { key: "knowledge", href: "/admin/knowledge", icon: BookOpen, labelOverride: "Knowledge" },
       { key: "legal", href: "/admin/legal", icon: ScrollText },
+      { key: "press", href: "/admin/press", icon: Newspaper, labelOverride: "Press" },
       { key: "faqManager", href: "/admin/faq", icon: HelpCircle },
       { key: "socialLinks", href: "/admin/social-links", icon: Share2 },
       { key: "media", href: "/admin/media", icon: ImageIcon },
@@ -55,6 +66,7 @@ const sections = [
     items: [
       { key: "communication", href: "/admin/communication", icon: MessagesSquare },
       { key: "notifications", href: "/admin/notifications", icon: Bell },
+      { key: "automations", href: "/admin/automations", icon: Workflow, labelOverride: "Automations" },
       { key: "support", href: "/admin/support", icon: LifeBuoy },
       { key: "accountDeletion", href: "/admin/account-deletion", icon: Trash2 },
     ],
@@ -62,6 +74,7 @@ const sections = [
   {
     title: "growth",
     items: [
+      { key: "analytics", href: "/admin/analytics", icon: BarChart3, labelOverride: "Analytics" },
       { key: "payments", href: "/admin/payments", icon: CreditCard },
       { key: "apiKeys", href: "/admin/api-keys", icon: KeyRound, labelOverride: "API Keys" },
       { key: "credits", href: "/admin/credits", icon: Coins, labelOverride: "Credits" },
@@ -72,9 +85,12 @@ const sections = [
     title: "system",
     items: [
       { key: "modules", href: "/admin/modules", icon: Package },
+      { key: "industry", href: "/admin/industry", icon: Boxes, labelOverride: "Industry" },
+      { key: "uiMode", href: "/admin/ui-mode", icon: Brush, labelOverride: "UI Mode" },
       { key: "integrations", href: "/admin/integrations", icon: Plug },
       { key: "branding", href: "/admin/branding", icon: Palette },
       { key: "settings", href: "/admin/settings", icon: Settings },
+      { key: "auditLogs", href: "/admin/audit-logs", icon: History, labelOverride: "Audit Logs" },
       { key: "logs", href: "/admin/logs", icon: ClipboardList },
     ],
   },

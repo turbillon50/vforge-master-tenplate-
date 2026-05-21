@@ -27,6 +27,19 @@ const nextConfig = {
       },
     ];
   },
+  async redirects() {
+    return [
+      // /dashboard URLs are the brief's canonical names; resolve to /app/*.
+      { source: "/dashboard", destination: "/app", permanent: false },
+      { source: "/dashboard/messages", destination: "/app/inbox", permanent: false },
+      { source: "/dashboard/notifications", destination: "/app/notifications", permanent: false },
+      { source: "/dashboard/profile", destination: "/app/profile", permanent: false },
+      { source: "/dashboard/settings", destination: "/app/settings", permanent: false },
+      { source: "/dashboard/api-center", destination: "/app/api", permanent: false },
+      { source: "/dashboard/billing", destination: "/app/billing", permanent: false },
+      { source: "/dashboard/help", destination: "/app/help", permanent: false },
+    ];
+  },
 };
 
 export default withNextIntl(nextConfig);
