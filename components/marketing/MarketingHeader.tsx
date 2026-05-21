@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useTranslations } from "next-intl";
-import { Sparkles, Menu } from "lucide-react";
+import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/controls/ThemeToggle";
 import { LocaleToggle } from "@/components/controls/LocaleToggle";
@@ -13,7 +13,7 @@ import {
   SheetHeader,
   SheetTitle,
 } from "@/components/ui/sheet";
-import { appConfig } from "@/config/app.config";
+import { MomentumMark } from "@/components/brand/MomentumLogo";
 
 const navLinks = [
   { key: "features", href: "/features" },
@@ -29,11 +29,9 @@ export function MarketingHeader() {
   return (
     <header className="sticky top-0 z-30 border-b border-border/70 bg-background/70 backdrop-blur-xl">
       <div className="container flex h-16 items-center justify-between gap-4">
-        <Link href="/" className="flex items-center gap-2">
-          <span className="grid h-8 w-8 place-items-center rounded-lg bg-accent-violet/15 text-accent-violet">
-            <Sparkles className="h-4 w-4" />
-          </span>
-          <span className="text-base font-semibold tracking-tight">{appConfig.name}</span>
+        <Link href="/" className="flex items-center gap-2.5">
+          <MomentumMark size={30} />
+          <span className="text-base font-medium tracking-tight text-chrome">Momentum</span>
         </Link>
 
         <nav className="hidden items-center gap-1 md:flex">
@@ -55,8 +53,8 @@ export function MarketingHeader() {
             <Button asChild variant="ghost" size="sm">
               <Link href="/sign-in">{t("signIn")}</Link>
             </Button>
-            <Button asChild size="sm">
-              <Link href="/sign-up">{t("signUp")}</Link>
+            <Button asChild size="sm" className="shadow-glow-sm">
+              <Link href="/contact">{t("signUp")}</Link>
             </Button>
           </div>
           <Sheet>
@@ -67,7 +65,10 @@ export function MarketingHeader() {
             </SheetTrigger>
             <SheetContent side="right" className="w-80">
               <SheetHeader>
-                <SheetTitle>{appConfig.name}</SheetTitle>
+                <SheetTitle className="flex items-center gap-2">
+                  <MomentumMark size={26} />
+                  <span className="text-chrome">Momentum</span>
+                </SheetTitle>
               </SheetHeader>
               <nav className="mt-6 flex flex-col gap-1">
                 {navLinks.map((l) => (
@@ -84,7 +85,7 @@ export function MarketingHeader() {
                     <Link href="/sign-in">{t("signIn")}</Link>
                   </Button>
                   <Button asChild>
-                    <Link href="/sign-up">{t("signUp")}</Link>
+                    <Link href="/contact">{t("signUp")}</Link>
                   </Button>
                 </div>
               </nav>

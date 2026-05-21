@@ -3,50 +3,56 @@
 @tailwind utilities;
 
 /* =============================================================================
- * Design tokens — CSS variables
+ * Vº Momentum — design tokens
+ * Brand: chrome silver on pure black with electric-blue glow accent
  * Dark first; light overrides via [data-theme="light"]
  * ============================================================================= */
 
 :root,
 [data-theme="dark"] {
-  --color-void: 0 0% 3%;
-  --color-ink: 240 12% 95%;
+  --color-void: 0 0% 0%;
+  --color-ink: 210 15% 96%;
 
-  --color-background: 240 14% 4%;
-  --color-foreground: 240 8% 96%;
+  --color-background: 222 30% 3%;
+  --color-foreground: 210 15% 96%;
 
-  --color-surface: 240 14% 7%;
-  --color-surface-low: 240 14% 5%;
-  --color-surface-high: 240 12% 10%;
-  --color-surface-elev: 240 10% 14%;
+  --color-surface: 220 25% 6%;
+  --color-surface-low: 222 30% 4%;
+  --color-surface-high: 220 22% 9%;
+  --color-surface-elev: 220 20% 13%;
 
-  --color-on-surface: 240 8% 96%;
-  --color-on-surface-variant: 240 6% 70%;
+  --color-on-surface: 210 15% 96%;
+  --color-on-surface-variant: 215 12% 72%;
 
-  --color-muted: 240 8% 13%;
-  --color-muted-foreground: 240 6% 65%;
+  --color-muted: 220 15% 12%;
+  --color-muted-foreground: 215 12% 68%;
 
-  --color-border: 240 8% 16%;
-  --color-input: 240 8% 14%;
-  --color-ring: 265 80% 60%;
+  --color-border: 215 18% 16%;
+  --color-input: 220 18% 13%;
+  --color-ring: 210 100% 56%;
 
-  --color-card: 240 14% 8%;
-  --color-card-foreground: 240 8% 96%;
-  --color-popover: 240 14% 8%;
-  --color-popover-foreground: 240 8% 96%;
+  --color-card: 220 26% 7%;
+  --color-card-foreground: 210 15% 96%;
+  --color-popover: 220 26% 7%;
+  --color-popover-foreground: 210 15% 96%;
 
-  --color-primary: 265 80% 62%;
+  /* Primary = Momentum electric blue */
+  --color-primary: 210 100% 56%;
   --color-primary-foreground: 0 0% 100%;
-  --color-secondary: 240 10% 14%;
-  --color-secondary-foreground: 240 8% 96%;
+  --color-secondary: 220 18% 13%;
+  --color-secondary-foreground: 210 15% 96%;
   --color-destructive: 0 75% 58%;
   --color-destructive-foreground: 0 0% 100%;
 
-  --color-accent: 265 80% 60%;
+  /* Accent palette — electric blue family + status colors */
+  --color-accent: 210 100% 56%;
   --color-accent-foreground: 0 0% 100%;
-  --color-accent-violet: 265 80% 60%;
-  --color-accent-cyan: 190 85% 55%;
-  --color-accent-electric: 220 95% 60%;
+  --color-accent-violet: 210 100% 56%;       /* alias → blue (compat) */
+  --color-accent-cyan: 200 100% 60%;
+  --color-accent-electric: 210 100% 56%;
+  --color-accent-glow: 208 100% 68%;
+  --color-accent-deep: 215 85% 42%;
+  --color-accent-chrome: 220 10% 78%;
   --color-accent-emerald: 155 70% 48%;
   --color-accent-crimson: 350 78% 56%;
   --color-accent-amber: 38 92% 56%;
@@ -56,54 +62,46 @@
   --radius-sm: 6px;
 }
 
-/* Light theme */
+/* Light theme — same identity in inverted polarity */
 [data-theme="light"] {
   --color-void: 0 0% 100%;
-  --color-ink: 240 12% 12%;
+  --color-ink: 222 30% 8%;
 
   --color-background: 0 0% 100%;
-  --color-foreground: 240 12% 10%;
+  --color-foreground: 222 30% 8%;
 
-  --color-surface: 240 20% 99%;
-  --color-surface-low: 240 30% 97%;
+  --color-surface: 210 25% 99%;
+  --color-surface-low: 210 30% 97%;
   --color-surface-high: 0 0% 100%;
-  --color-surface-elev: 240 20% 99%;
+  --color-surface-elev: 210 20% 99%;
 
-  --color-on-surface: 240 12% 12%;
-  --color-on-surface-variant: 240 8% 38%;
+  --color-on-surface: 222 30% 8%;
+  --color-on-surface-variant: 215 18% 36%;
 
-  --color-muted: 240 15% 95%;
-  --color-muted-foreground: 240 8% 40%;
+  --color-muted: 210 20% 95%;
+  --color-muted-foreground: 215 18% 40%;
 
-  --color-border: 240 12% 88%;
-  --color-input: 240 14% 94%;
-  --color-ring: 265 80% 60%;
+  --color-border: 215 22% 88%;
+  --color-input: 215 25% 94%;
+  --color-ring: 210 100% 50%;
 
   --color-card: 0 0% 100%;
-  --color-card-foreground: 240 12% 12%;
+  --color-card-foreground: 222 30% 8%;
   --color-popover: 0 0% 100%;
-  --color-popover-foreground: 240 12% 12%;
+  --color-popover-foreground: 222 30% 8%;
 
-  --color-primary: 265 80% 55%;
+  --color-primary: 210 100% 48%;
   --color-primary-foreground: 0 0% 100%;
-  --color-secondary: 240 15% 95%;
-  --color-secondary-foreground: 240 12% 12%;
+  --color-secondary: 210 20% 95%;
+  --color-secondary-foreground: 222 30% 8%;
   --color-destructive: 0 75% 50%;
   --color-destructive-foreground: 0 0% 100%;
 
-  --color-accent: 265 80% 55%;
+  --color-accent: 210 100% 48%;
   --color-accent-foreground: 0 0% 100%;
+  --color-accent-violet: 210 100% 48%;
+  --color-accent-chrome: 220 14% 55%;
 }
-
-/* Wrap all tokens in hsl() so Tailwind color utilities work */
-:root,
-[data-theme="dark"],
-[data-theme="light"] {
-  --color-void: hsl(var(--color-void));
-}
-
-/* Use the var() pattern via Tailwind's `colors` keys above.
-   Add custom keyframes via tailwind.config.ts. */
 
 @layer base {
   * {
@@ -125,7 +123,7 @@
   }
 
   ::selection {
-    background-color: hsl(var(--color-accent-violet) / 0.35);
+    background-color: hsl(var(--color-accent-electric) / 0.35);
     color: hsl(var(--color-foreground));
   }
 
@@ -148,23 +146,65 @@
     border: 1px solid hsl(var(--color-border) / 0.8);
   }
 
+  /* Momentum signature mesh — electric blue radial bloom on pure black */
   .mesh-bg {
     background-image:
-      radial-gradient(at 12% 0%, hsl(var(--color-accent-violet) / 0.18) 0px, transparent 50%),
-      radial-gradient(at 92% 0%, hsl(var(--color-accent-cyan) / 0.12) 0px, transparent 50%),
-      radial-gradient(at 50% 100%, hsl(var(--color-accent-emerald) / 0.08) 0px, transparent 50%);
+      radial-gradient(at 50% 0%, hsl(var(--color-accent-electric) / 0.22) 0px, transparent 55%),
+      radial-gradient(at 12% 100%, hsl(var(--color-accent-deep) / 0.16) 0px, transparent 55%),
+      radial-gradient(at 92% 80%, hsl(var(--color-accent-glow) / 0.14) 0px, transparent 50%);
+  }
+
+  /* Chrome metallic gradient — for the V-mark and accent text */
+  .text-chrome {
+    background: linear-gradient(
+      180deg,
+      hsl(220 15% 95%) 0%,
+      hsl(220 12% 78%) 35%,
+      hsl(220 10% 55%) 55%,
+      hsl(220 14% 88%) 75%,
+      hsl(220 15% 96%) 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 22px hsl(var(--color-accent-electric) / 0.18);
   }
 
   .text-gradient {
     background: linear-gradient(
       135deg,
       hsl(var(--color-foreground)),
-      hsl(var(--color-accent-violet)),
-      hsl(var(--color-accent-cyan))
+      hsl(var(--color-accent-glow)),
+      hsl(var(--color-accent-electric))
     );
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
+  }
+
+  /* Electric blue glow for the brand "0" ring + CTAs */
+  .glow-electric {
+    box-shadow:
+      0 0 0 1px hsl(var(--color-accent-electric) / 0.4),
+      0 0 16px hsl(var(--color-accent-electric) / 0.45),
+      0 0 40px hsl(var(--color-accent-electric) / 0.25);
+  }
+
+  .glow-electric-sm {
+    box-shadow: 0 0 18px hsl(var(--color-accent-electric) / 0.35);
+  }
+
+  .ring-mark {
+    /* The "0" of Vº — concentric electric-blue ring with bloom */
+    background: conic-gradient(
+      from 180deg,
+      transparent,
+      hsl(var(--color-accent-electric) / 0.9),
+      hsl(var(--color-accent-glow) / 1),
+      hsl(var(--color-accent-electric) / 0.9),
+      transparent
+    );
+    filter: blur(0.5px);
   }
 
   .shimmer-bg {

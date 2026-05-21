@@ -51,6 +51,9 @@ const config: Config = {
           violet: "var(--color-accent-violet)",
           cyan: "var(--color-accent-cyan)",
           electric: "var(--color-accent-electric)",
+          glow: "var(--color-accent-glow)",
+          deep: "var(--color-accent-deep)",
+          chrome: "var(--color-accent-chrome)",
           emerald: "var(--color-accent-emerald)",
           crimson: "var(--color-accent-crimson)",
           amber: "var(--color-accent-amber)",
@@ -101,19 +104,23 @@ const config: Config = {
       backgroundImage: {
         "gradient-radial": "radial-gradient(ellipse at center, var(--tw-gradient-stops))",
         "gradient-mesh":
-          "radial-gradient(at 0% 0%, hsla(265,80%,55%,0.18) 0px, transparent 50%), radial-gradient(at 100% 0%, hsla(190,80%,55%,0.12) 0px, transparent 50%), radial-gradient(at 50% 100%, hsla(155,70%,50%,0.10) 0px, transparent 50%)",
+          "radial-gradient(at 50% 0%, hsla(210,100%,56%,0.22) 0px, transparent 55%), radial-gradient(at 12% 100%, hsla(215,85%,42%,0.16) 0px, transparent 55%), radial-gradient(at 92% 80%, hsla(208,100%,68%,0.14) 0px, transparent 50%)",
         "gradient-glow":
-          "linear-gradient(135deg, hsla(265,80%,60%,0.15), hsla(190,80%,55%,0.10), transparent)",
+          "linear-gradient(135deg, hsla(210,100%,56%,0.20), hsla(208,100%,68%,0.12), transparent)",
+        "gradient-chrome":
+          "linear-gradient(180deg, hsl(220 15% 95%) 0%, hsl(220 12% 78%) 35%, hsl(220 10% 55%) 55%, hsl(220 14% 88%) 75%, hsl(220 15% 96%) 100%)",
       },
       boxShadow: {
-        glow: "0 0 40px -10px var(--color-accent-violet)",
-        "glow-sm": "0 0 24px -8px var(--color-accent-violet)",
-        elev: "0 8px 30px -8px rgb(0 0 0 / 0.30)",
+        glow: "0 0 40px -10px hsl(var(--color-accent-electric))",
+        "glow-sm": "0 0 24px -8px hsl(var(--color-accent-electric))",
+        "glow-electric":
+          "0 0 0 1px hsl(var(--color-accent-electric) / 0.4), 0 0 18px hsl(var(--color-accent-electric) / 0.45), 0 0 48px hsl(var(--color-accent-electric) / 0.22)",
+        elev: "0 8px 30px -8px rgb(0 0 0 / 0.45)",
       },
       keyframes: {
         breathe: {
-          "0%, 100%": { opacity: "0.8", filter: "drop-shadow(0 0 6px var(--color-accent-violet))" },
-          "50%": { opacity: "1", filter: "drop-shadow(0 0 16px var(--color-accent-violet))" },
+          "0%, 100%": { opacity: "0.85", filter: "drop-shadow(0 0 8px hsl(var(--color-accent-electric)))" },
+          "50%": { opacity: "1", filter: "drop-shadow(0 0 22px hsl(var(--color-accent-electric)))" },
         },
         "pulse-soft": {
           "0%, 100%": { opacity: "0.85" },
