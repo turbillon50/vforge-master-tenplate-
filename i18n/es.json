@@ -1,0 +1,219 @@
+{
+  "common": {
+    "appName": "VForge",
+    "tagline": "La fábrica universal de aplicaciones.",
+    "loading": "Cargando…",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "create": "Crear",
+    "search": "Buscar",
+    "filter": "Filtrar",
+    "back": "Atrás",
+    "next": "Siguiente",
+    "confirm": "Confirmar",
+    "close": "Cerrar",
+    "yes": "Sí",
+    "no": "No",
+    "all": "Todo",
+    "active": "Activo",
+    "inactive": "Inactivo",
+    "empty": "Nada por aquí todavía.",
+    "errorGeneric": "Algo salió mal. Inténtalo de nuevo."
+  },
+  "nav": {
+    "features": "Funciones",
+    "pricing": "Precios",
+    "faq": "FAQ",
+    "contact": "Contacto",
+    "about": "Acerca",
+    "support": "Soporte",
+    "signIn": "Entrar",
+    "signUp": "Empezar",
+    "openApp": "Abrir app",
+    "language": "Idioma",
+    "theme": "Tema",
+    "themeLight": "Claro",
+    "themeDark": "Oscuro",
+    "themeSystem": "Sistema"
+  },
+  "landing": {
+    "hero": {
+      "eyebrow": "Fábrica Universal PWA",
+      "title": "Una base. Todas las aplicaciones.",
+      "subtitle": "Modular, mobile-first, grado enterprise. Genera apps de ecommerce, marketplace, reservas, viajes, CRM y SaaS desde una sola base de código.",
+      "ctaPrimary": "Empezar",
+      "ctaSecondary": "Ver funciones"
+    },
+    "trust": {
+      "title": "Construido sobre el stack moderno",
+      "subtitle": "Next.js, TypeScript, Clerk, Neon, Stripe, Mercado Pago, Resend, Twilio, Google Maps, OpenRouter."
+    },
+    "highlights": {
+      "modular": {
+        "title": "Modular por diseño",
+        "description": "Activa ecommerce, reservas, marketplace, viajes, CRM y más sin reescribir la app."
+      },
+      "premium": {
+        "title": "Experiencia móvil premium",
+        "description": "PWA instalable con navegación inferior, gestos y bases offline-ready."
+      },
+      "enterprise": {
+        "title": "Bases enterprise",
+        "description": "Permisos granulares, audit logs, feature flags, gestor de media y sistema universal de estados."
+      }
+    },
+    "cta": {
+      "title": "Deja de reconstruir. Empieza a lanzar.",
+      "subtitle": "Elige módulos. Brandea la app. Despliega a Vercel.",
+      "button": "Crear cuenta gratis"
+    }
+  },
+  "about": {
+    "title": "Acerca",
+    "lead": "Construimos la base universal que impulsa productos modernos."
+  },
+  "features": {
+    "title": "Funciones",
+    "lead": "Todo lo que necesitas para lanzar una app premium — y nada que no."
+  },
+  "pricing": {
+    "title": "Precios",
+    "lead": "Precios simples y predecibles. Edita los planes desde el panel admin."
+  },
+  "faq": {
+    "title": "Preguntas frecuentes",
+    "lead": "Respuestas organizadas por tema. ¿No encuentras lo que buscas? Contacta soporte.",
+    "categories": {
+      "public": "General",
+      "app": "Uso de la app",
+      "payments": "Pagos",
+      "account": "Cuenta",
+      "privacy": "Privacidad"
+    }
+  },
+  "contact": {
+    "title": "Contacto",
+    "lead": "Escríbenos. Respondemos en un día hábil.",
+    "form": {
+      "name": "Nombre",
+      "email": "Email",
+      "subject": "Asunto",
+      "message": "¿En qué te ayudamos?",
+      "submit": "Enviar mensaje",
+      "success": "¡Gracias! Recibimos tu mensaje.",
+      "error": "No se pudo enviar. Intenta de nuevo o escríbenos directo."
+    }
+  },
+  "support": {
+    "title": "Centro de soporte",
+    "lead": "Documentación, FAQs y ayuda directa.",
+    "emailUs": "Escribir a soporte"
+  },
+  "legal": {
+    "terms": { "title": "Términos y Condiciones" },
+    "privacy": { "title": "Política de Privacidad" },
+    "cookies": { "title": "Política de Cookies" },
+    "deleteAccount": {
+      "title": "Borrado de Cuenta",
+      "lead": "Solicita el borrado permanente de tu cuenta y datos.",
+      "whatDeleted": "Qué se borra",
+      "whatRetained": "Qué podemos retener",
+      "timeline": "Tiempo de procesamiento",
+      "contactUs": "Contacto",
+      "form": {
+        "email": "Email con el que te registraste",
+        "reason": "Motivo (opcional)",
+        "submit": "Solicitar borrado",
+        "success": "Recibimos tu solicitud. Te llegará un email de confirmación."
+      }
+    },
+    "iosPolicy": { "title": "Política App Store" },
+    "androidPolicy": { "title": "Política Play Store" }
+  },
+  "cookies": {
+    "banner": {
+      "title": "Usamos cookies",
+      "body": "Usamos cookies esenciales para el funcionamiento y opcionales para analítica. Puedes cambiar tus preferencias cuando quieras.",
+      "accept": "Aceptar todas",
+      "reject": "Rechazar opcionales",
+      "manage": "Gestionar preferencias"
+    },
+    "preferences": {
+      "title": "Preferencias de cookies",
+      "necessary": "Necesarias",
+      "analytics": "Analítica",
+      "marketing": "Marketing",
+      "save": "Guardar preferencias"
+    }
+  },
+  "auth": {
+    "signIn": { "title": "Bienvenido de nuevo", "subtitle": "Inicia sesión para continuar." },
+    "signUp": { "title": "Crea tu cuenta", "subtitle": "Empieza en segundos." },
+    "consent": {
+      "terms": "Acepto los Términos",
+      "privacy": "He leído la Política de Privacidad",
+      "age": "Tengo al menos 16 años"
+    }
+  },
+  "app": {
+    "dashboard": "Inicio",
+    "inbox": "Bandeja",
+    "profile": "Perfil",
+    "settings": "Ajustes",
+    "signOut": "Cerrar sesión"
+  },
+  "admin": {
+    "title": "Admin",
+    "overview": "Resumen",
+    "users": "Usuarios",
+    "accountDeletion": "Borrado de Cuenta",
+    "modules": "Módulos",
+    "content": "Contenido",
+    "legal": "Páginas Legales",
+    "faqManager": "FAQs",
+    "socialLinks": "Redes Sociales",
+    "media": "Media",
+    "branding": "Branding",
+    "settings": "Ajustes de App",
+    "notifications": "Notificaciones",
+    "communication": "Comunicación",
+    "payments": "Pagos",
+    "integrations": "Integraciones",
+    "support": "Bandeja Soporte",
+    "logs": "Logs de Actividad",
+    "roles": "Roles y Permisos",
+    "featureFlags": "Feature Flags",
+    "statuses": "Estados",
+    "saved": "Guardado"
+  },
+  "communication": {
+    "title": "Centro de Comunicación",
+    "inbox": "Bandeja",
+    "conversations": "Conversaciones",
+    "announcements": "Anuncios",
+    "templates": "Plantillas",
+    "automations": "Automatizaciones",
+    "newAnnouncement": "Nuevo anuncio",
+    "newConversation": "Nueva conversación",
+    "channels": {
+      "in_app": "En la App",
+      "resend_email": "Email",
+      "twilio_whatsapp": "WhatsApp",
+      "twilio_sms": "SMS",
+      "pwa_push": "Push"
+    },
+    "status": {
+      "queued": "En cola",
+      "sending": "Enviando",
+      "sent": "Enviado",
+      "delivered": "Entregado",
+      "read": "Leído",
+      "replied": "Respondido",
+      "failed": "Fallido",
+      "bounced": "Rebotado",
+      "skipped": "Omitido"
+    }
+  }
+}

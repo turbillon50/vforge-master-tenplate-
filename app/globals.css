@@ -1,0 +1,189 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =============================================================================
+ * Design tokens — CSS variables
+ * Dark first; light overrides via [data-theme="light"]
+ * ============================================================================= */
+
+:root,
+[data-theme="dark"] {
+  --color-void: 0 0% 3%;
+  --color-ink: 240 12% 95%;
+
+  --color-background: 240 14% 4%;
+  --color-foreground: 240 8% 96%;
+
+  --color-surface: 240 14% 7%;
+  --color-surface-low: 240 14% 5%;
+  --color-surface-high: 240 12% 10%;
+  --color-surface-elev: 240 10% 14%;
+
+  --color-on-surface: 240 8% 96%;
+  --color-on-surface-variant: 240 6% 70%;
+
+  --color-muted: 240 8% 13%;
+  --color-muted-foreground: 240 6% 65%;
+
+  --color-border: 240 8% 16%;
+  --color-input: 240 8% 14%;
+  --color-ring: 265 80% 60%;
+
+  --color-card: 240 14% 8%;
+  --color-card-foreground: 240 8% 96%;
+  --color-popover: 240 14% 8%;
+  --color-popover-foreground: 240 8% 96%;
+
+  --color-primary: 265 80% 62%;
+  --color-primary-foreground: 0 0% 100%;
+  --color-secondary: 240 10% 14%;
+  --color-secondary-foreground: 240 8% 96%;
+  --color-destructive: 0 75% 58%;
+  --color-destructive-foreground: 0 0% 100%;
+
+  --color-accent: 265 80% 60%;
+  --color-accent-foreground: 0 0% 100%;
+  --color-accent-violet: 265 80% 60%;
+  --color-accent-cyan: 190 85% 55%;
+  --color-accent-electric: 220 95% 60%;
+  --color-accent-emerald: 155 70% 48%;
+  --color-accent-crimson: 350 78% 56%;
+  --color-accent-amber: 38 92% 56%;
+
+  --radius-lg: 14px;
+  --radius-md: 10px;
+  --radius-sm: 6px;
+}
+
+/* Light theme */
+[data-theme="light"] {
+  --color-void: 0 0% 100%;
+  --color-ink: 240 12% 12%;
+
+  --color-background: 0 0% 100%;
+  --color-foreground: 240 12% 10%;
+
+  --color-surface: 240 20% 99%;
+  --color-surface-low: 240 30% 97%;
+  --color-surface-high: 0 0% 100%;
+  --color-surface-elev: 240 20% 99%;
+
+  --color-on-surface: 240 12% 12%;
+  --color-on-surface-variant: 240 8% 38%;
+
+  --color-muted: 240 15% 95%;
+  --color-muted-foreground: 240 8% 40%;
+
+  --color-border: 240 12% 88%;
+  --color-input: 240 14% 94%;
+  --color-ring: 265 80% 60%;
+
+  --color-card: 0 0% 100%;
+  --color-card-foreground: 240 12% 12%;
+  --color-popover: 0 0% 100%;
+  --color-popover-foreground: 240 12% 12%;
+
+  --color-primary: 265 80% 55%;
+  --color-primary-foreground: 0 0% 100%;
+  --color-secondary: 240 15% 95%;
+  --color-secondary-foreground: 240 12% 12%;
+  --color-destructive: 0 75% 50%;
+  --color-destructive-foreground: 0 0% 100%;
+
+  --color-accent: 265 80% 55%;
+  --color-accent-foreground: 0 0% 100%;
+}
+
+/* Wrap all tokens in hsl() so Tailwind color utilities work */
+:root,
+[data-theme="dark"],
+[data-theme="light"] {
+  --color-void: hsl(var(--color-void));
+}
+
+/* Use the var() pattern via Tailwind's `colors` keys above.
+   Add custom keyframes via tailwind.config.ts. */
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans antialiased;
+    background-color: hsl(var(--color-background));
+    color: hsl(var(--color-foreground));
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+  ::selection {
+    background-color: hsl(var(--color-accent-violet) / 0.35);
+    color: hsl(var(--color-foreground));
+  }
+
+  /* PWA safe areas */
+  body {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+@layer utilities {
+  .glass {
+    background: linear-gradient(
+      180deg,
+      hsl(var(--color-surface) / 0.85),
+      hsl(var(--color-surface-low) / 0.65)
+    );
+    backdrop-filter: saturate(140%) blur(18px);
+    -webkit-backdrop-filter: saturate(140%) blur(18px);
+    border: 1px solid hsl(var(--color-border) / 0.8);
+  }
+
+  .mesh-bg {
+    background-image:
+      radial-gradient(at 12% 0%, hsl(var(--color-accent-violet) / 0.18) 0px, transparent 50%),
+      radial-gradient(at 92% 0%, hsl(var(--color-accent-cyan) / 0.12) 0px, transparent 50%),
+      radial-gradient(at 50% 100%, hsl(var(--color-accent-emerald) / 0.08) 0px, transparent 50%);
+  }
+
+  .text-gradient {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--color-foreground)),
+      hsl(var(--color-accent-violet)),
+      hsl(var(--color-accent-cyan))
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  .shimmer-bg {
+    background: linear-gradient(
+      90deg,
+      hsl(var(--color-surface)),
+      hsl(var(--color-surface-high)),
+      hsl(var(--color-surface))
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2.4s linear infinite;
+  }
+
+  .scroll-area-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  .scroll-area-thin::-webkit-scrollbar-thumb {
+    background: hsl(var(--color-border));
+    border-radius: 9999px;
+  }
+}
